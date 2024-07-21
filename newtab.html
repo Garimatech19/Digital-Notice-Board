@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Tab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    <!-- Notice Board -->
+    <div id="notice-board">
+        <div id="notice-content">
+            <h2>Notice Board</h2>
+            <p id="notice-text">Hey welcome to notice Board. Tomorrow is a holiday</p>
+            <div id="notice-buttons">
+                <button id="like-button">Like</button>
+                <button id="dislike-button">Dislike</button>
+                <button onclick="myFunctionClose()" id="close-button">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="floating-widgets-container">
+        <div class="widget" id="google-form">
+            <h2>Google Form</h2>
+            <iframe src="https://forms.gle/cXsBsDeijJtA9nxr7"  frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <button class="widget-popup-btn" data-popup-id="popup-google-form"></button>
+        </div>
+        <div class="widget" id="google-sheets">
+            <h2>Google Sheets</h2>
+            <iframe src="https://docs.google.com/spreadsheets/d/13UMqvtqib-peQMXRSJH1eG0VZbYYpUFGvKlhi2cx2fI/edit?gid=0#gid=0" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+            <button class="widget-popup-btn" data-popup-id="popup-google-sheets"></button>
+        </div>
+        <div class="widget" id="google-docs">
+            <h2>Google Doc</h2>
+            <iframe src="https://docs.google.com/presentation/d/1M2qMqrPTzA860XN2ifT_yPEGLWts9is0VwyYMGzxZbk/edit#slide=id.p" frameborder="0"></iframe>
+            <button class="widget-popup-btn" data-popup-id="popup-docs"></button>
+        </div>
+        <div class="widget" id="google-meet">
+            <h2>Google Meet</h2>
+            <iframe src="https://meet.google.com" frameborder="0" allow="camera; microphone; fullscreen" width="100%" height="100%"></iframe>
+        </div>
+        <div class="widget" id="pomodoro-timer">
+            <h2>Pomodoro Timer</h2>
+            <div id="timer">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+            <button id="short-break">Short Break</button>
+            <button id="long-break">Long Break</button>
+            <div id="tasks">
+                <h3>Tasks</h3>
+                <input type="text" id="task-input" placeholder="Add a new task" />
+                <button id="add-task">Add Task</button>
+                <ul id="task-list"></ul>
+            </div>
+        </div>
+        <div class="widget" id="google-calendar">
+            <h2>Google Calendar</h2>
+            <iframe src="https://calendar.google.com/calendar/embed?src=targetupscnotes%40gmail.com&ctz=Asia%2FKolkata" style="border: 0" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div id="opportunity-board">
+            <h2>Opportunity Board</h2>
+            <div id="problem-form">
+                <h3>Submit a Problem</h3>
+                <textarea id="problem-input" placeholder="Describe the problem..."></textarea>
+                <button id="submit-problem">Submit Problem</button>
+            </div>
+            <div id="problems-list">
+                <h3>Problems</h3>
+                <ul id="problem-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Quote of the Day Icon -->
+    <div id="quote-icon" title="Quote of the Day">📖</div>
+
+    <!-- Quote of the Day Popup -->
+    <div id="quote-popup" class="hidden">
+        <div id="quote-popup-content">
+            <span id="quote-popup-close" class="close-btn">&times;</span>
+            <h2>Quote of the Day</h2>
+            <p id="quote-message">"The only limit to our realization of tomorrow is our doubts of today." – Franklin D. Roosevelt</p>
+        </div>
+    </div>
+    <!-- <iframe src="https://calendar.google.com/calendar/embed?src=targetupscnotes%40gmail.com&ctz=Asia%2FKolkata" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+
+    <!-- Light/Dark Mode Toggle -->
+
+    <!-- Poll Button and Box -->
+    <div id="poll-container">
+        <button id="poll-button">Poll</button>
+        <div id="poll-box" class="hidden">
+            <h2>Employee Poll</h2>
+            <form id="poll-form">
+                <label>
+                    <input type="radio" name="poll" value="Option 1">
+                    Option 1
+                    <span class="poll-percentage" id="option1-percentage">0%</span>
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="poll" value="Option 2">
+                    Option 2
+                    <span class="poll-percentage" id="option2-percentage">0%</span>
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="poll" value="Option 3">
+                    Option 3
+                    <span class="poll-percentage" id="option3-percentage">0%</span>
+                </label>
+                <br>
+                <button type="submit">Submit Vote</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Blinking Button -->
+    <button id="blinking-button"></button>
+
+    <!-- Announcement Popup Window -->
+    <div id="popup-announcement">
+        <div id="popup-announcement-header">
+            <h2>Announcements and Files</h2>
+            <button id="popup-announcement-close">X</button>
+        </div>
+        <div id="popup-announcement-content">
+            <h3>Announcements</h3>
+            <p>Here are the latest announcements:</p>
+            <ul>
+                <li>Announcement 1</li>
+                <li>Announcement 2</li>
+                <li>Announcement 3</li>
+            </ul>
+            <h3>Downloadable Files</h3>
+            <p>Download the following files:</p>
+            <a href="file1.pdf" download>File 1 (PDF)</a>
+            <a href="file2.pdf" download>File 2 (PDF)</a>
+            <a href="file3.pdf" download>File 3 (PDF)</a>
+        </div>
+    </div>
+
+
+   
+    
+<!-- Settings Button -->
+<button id="settings-button">Settings</button>
+
+    <!-- Settings Modal -->
+<div id="settings-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Settings</h2>
+        <form id="settings-form">
+            <label>
+                <input type="checkbox" id="toggle-quote-widget">
+                Quote of the Day Widget
+            </label><br>
+            <label>
+                <input type="checkbox" id="toggle-poll-widget">
+                Poll Widget
+            </label><br>
+            <label>
+                <input type="checkbox" id="toggle-growth-checklist-widget">
+                Daily Growth Checklist Widget
+            </label><br>
+            <label>
+                <input type="checkbox" id="toggle-announcement-widget">
+                Announcement Widget
+            </label><br>
+            <label>
+                <input type="checkbox" id="toggle-opportunity-board-widget">
+                Opportunity Board Widget
+            </label><br>
+            <button type="button" id="save-settings">Save</button>
+        </form>
+    </div>
+</div>
+
+
+    
+    <button id="toggle-mode-button">Toggle Mode</button>
+    
+    <!-- <div class="widget">
+        <button id="randomWidgetBtn">Click Me!</button>
+        <div id="popupContent" class="hidden">
+            <p>This is some random content!</p>
+        </div>
+    </div> -->
+    <script src="content.js"></script>
+
+    <script>
+        function myFunctionClose() {
+            var x = document.getElementById("notice-board");
+            x.style.display = "none";
+        }
+    </script>
+</body>
+</html>
